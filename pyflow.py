@@ -14,8 +14,13 @@
 
 
 import sys
-from PyFlow.App import PyFlow
+
+import discord
+from qasync import QEventLoop
 from Qt.QtWidgets import QApplication
+
+from PyFlow.App import PyFlow
+from settings import DISCORD_BOT_TOKEN
 
 
 def main():
@@ -25,11 +30,10 @@ def main():
     if instance is not None:
         app.setActiveWindow(instance)
         instance.show()
-
-        try:
-            sys.exit(app.exec_())
-        except Exception as e:
-            print(e)
+    loop = QEventLoop(app)
+    client = discord.Client()
+    loop.create_task(client.start(DISCORD_BOT_TOKEN))
+    loop.run_forever()
 
 
 if __name__ == '__main__':
