@@ -13,6 +13,8 @@ from PyFlow.Packages.PyFlowBase.Pins.FloatPin import FloatPin
 from PyFlow.Packages.PyFlowBase.Pins.IntPin import IntPin
 from PyFlow.Packages.PyFlowBase.Pins.StringPin import StringPin
 
+# from PyFlow.Packages.PyFlowBase.Pins.MessagePin import MessagePin
+
 # Function based nodes
 from PyFlow.Packages.PyFlowBase.FunctionLibraries.ArrayLib import ArrayLib
 from PyFlow.Packages.PyFlowBase.FunctionLibraries.BoolLib import BoolLib
@@ -72,6 +74,8 @@ from PyFlow.Packages.PyFlowBase.Nodes.imageDisplay import imageDisplay
 
 from PyFlow.Packages.PyFlowBase.Nodes.commentNode import commentNode
 from PyFlow.Packages.PyFlowBase.Nodes.stickyNote import stickyNote
+
+from PyFlow.Packages.PyFlowBase.Nodes.onMessage import onMessage
 
 from PyFlow.Packages.PyFlowBase.Tools.ScreenshotTool import ScreenshotTool
 from PyFlow.Packages.PyFlowBase.Tools.NodeBoxTool import NodeBoxTool
@@ -156,7 +160,9 @@ _NODES = {
     colorRamp.__name__: colorRamp,
     stringToArray.__name__: stringToArray,
     imageDisplay.__name__: imageDisplay,
-    cliexit.__name__: cliexit
+    cliexit.__name__: cliexit,
+
+    onMessage.__name__: onMessage,
 }
 
 _PINS = {
@@ -166,6 +172,8 @@ _PINS = {
     FloatPin.__name__: FloatPin,
     IntPin.__name__: IntPin,
     StringPin.__name__: StringPin,
+
+    # MessagePin.__name__: MessagePin,
 }
 
 # Toolbar will be created in following order

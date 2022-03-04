@@ -162,7 +162,7 @@ class LoggerTool(DockTool):
         else:
             self.handler = logging.StreamHandler(sys.stdout)
 
-        logger.setLevel(logging.DEBUG)
+        logger.setLevel(logging.ERROR)
         sys.excepthook = LoggerTool.exceptHook
         if self.handler and REDIRECT:
             self.handler.setFormatter(LoggerTool.formater)

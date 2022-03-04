@@ -17,21 +17,33 @@ import sys
 
 import discord
 from qasync import QEventLoop
+from PyFlow.Packages.PyFlowBase.Nodes.onMessage import onMessage
 from Qt.QtWidgets import QApplication
 
 from PyFlow.App import PyFlow
 from settings import DISCORD_BOT_TOKEN
 
 
+class Client(discord.Client):
+
+    def __init__(self, instance: PyFlow):
+        super().__init__()
+        self.instance: PyFlow = instance
+
+    async def on_message(self, message):
+        for node in self.instance.getCanvas().graphManager.getAllNodes():
+            if isinstance(node, onMessage):
+                node.execute(message)
+
 def main():
     app = QApplication(sys.argv)
 
-    instance = PyFlow.instance(software="standalone")
+    instance: PyFlow = PyFlow.instance(software="standalone")
     if instance is not None:
         app.setActiveWindow(instance)
         instance.show()
     loop = QEventLoop(app)
-    client = discord.Client()
+    client = Client(instance)
     loop.create_task(client.start(DISCORD_BOT_TOKEN))
     loop.run_forever()
 

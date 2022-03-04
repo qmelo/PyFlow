@@ -58,7 +58,7 @@ class consoleOutput(NodeBase):
         if self.getWrapper() is not None and redirectionEnabled:
             data = str(self.entity.getData())
             if self.entity.dataType != "StringPin":
-                data = data.encode('unicode-escape')
+                data = data.encode('utf-8')
             if IS_PYTHON2:
                 data = data.replace("\\n", "<br/>")
             else:
