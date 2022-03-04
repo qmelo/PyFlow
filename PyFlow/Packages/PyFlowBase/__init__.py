@@ -77,6 +77,8 @@ from PyFlow.Packages.PyFlowBase.Nodes.stickyNote import stickyNote
 
 from PyFlow.Packages.PyFlowBase.Nodes.onMessage import onMessage
 
+from PyFlow.Packages.PyFlowBase.Nodes.messageableSend import messageableSend
+
 from PyFlow.Packages.PyFlowBase.Tools.ScreenshotTool import ScreenshotTool
 from PyFlow.Packages.PyFlowBase.Tools.NodeBoxTool import NodeBoxTool
 from PyFlow.Packages.PyFlowBase.Tools.SearchResultsTool import SearchResultsTool
@@ -163,6 +165,8 @@ _NODES = {
     cliexit.__name__: cliexit,
 
     onMessage.__name__: onMessage,
+
+    messageableSend.__name__: messageableSend,
 }
 
 _PINS = {
